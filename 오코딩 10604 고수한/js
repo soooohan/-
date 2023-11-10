@@ -1,66 +1,21 @@
-const myButton = document.querySelector (".myButton")
-function clickedalart(){
-    alert("clicked!")
-}
-myButton.addEventListener("click",clickedalart)
+const comPic = document.querySelector(".comPic");
+const myPicR = document.querySelector(".myPicR");
+const myPicS = document.querySelector(".myPicS");
+const myPicP = document.querySelector(".myPicP");
 
-const MIN_USER_NAME_LENGTH = 2;
+const RSP = ["묵", "찌", "빠"];
 
-const input = document.querySelector("input[type=select]");
-const msg = document.querySelector(".messenger");
-
-function checkUserNameLength(n) {
-    if (input.ariaValueMax.length < n) {
-        msg.innerHTML = "이름은" + n + "자 이상이어야 합니다";
-    } else {
-        msg.innerHTML = " ";
-    }
+function randomPic() {
+    const randomNum = Math.floor(Math.random() * 3);
+    const randomRSP = RSP[randomNum];
+    return randomRSP;
 }
 
-input.addEventListener("blur, function"() {
-    checkUserNameLength(MIN_USER_NAME_LENGTH);
-});
-
-const quotes = [
-    {
-         quote: "잠이 보약이다",
-         author: "고수한",
-    },
-    {
-        quote: "안녕",
-        author: "하이",
-    }    
-]
-
-const quote = document.querySelector("quote span:first-child");
-const author = document.querySelector("quote span:last-child");
-const button = document.querySelector("button")
-
-function changeSpan() {
-
-
-
-const firstQuote = quote[0]
-
-quote.innerText = firstQuote.quote;
-author.innerText = firstQuote.author;
-author.classList.add(".BlueBackgroundClolor");
+function mainfunction() {
+    const randomRSP = randomPic();
+    comPic.innerText = randomRSP;
 }
 
-button.addEventListener("click",changeSpan);
-
-
-
-const clock = document.querySelector(".clock");
-
-function getClock(){
-console.log(data);
- const hours = String(data.gethours()).padStart(2,"0")
- const minutes = String(data.getminutes()).padStart(2,"0")
- const seconds = String(data.getseconds).padStart(2,"0")
-clock.innerText = hours + ":" + minutes + ":" + seconds;
-clock.innerText = "$(hours):$(minutes):$(seconds)"
-}
-
-getClock();
-setInterval(getClock,1000);
+myPicR.addEventListener("click", mainfunction);
+myPicS.addEventListener("click", mainfunction);
+myPicP.addEventListener("click", mainfunction);
